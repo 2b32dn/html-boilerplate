@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="http://www.youtube.com/player_api"></script>
+  </head>
+  <body>
+    <h1>Youtube API integration</h1>
+    <div>
+      <img src="asset/two-cats.jpg" class="youtube-click" onclick="startYT()"/>      
+    </div>
+    <div class="youtube-modal">
+      <div class="youtube-container">
+        <div id="player" class="youtube-video"></div>
+        <div class="youtube-close" onclick="stopVideo()"></div>
+      </div>
+    </div>
+    <!-- <script src="" async defer></script> -->
+    <script src="text/javascript">
+      function startYT(e) {
+        e.preventDefault();
+        var s = document.getElementsByClassName("youtube-modal-active")
+      }
+
+      var tag = document.createElemet('script');
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag)
+
+      var player;
+      function onYoutubeIframeAPIReady() {
+        player = new YT.Player('player', {
+          height: '750',
+          width: '450',
+          videoId: 'GOVPpLtJUIg'
+        })
+      }
+      function stopVideo() {
+        player.stopVideo();
+      }
+    </script>
+  </body>
+</html>
